@@ -13,12 +13,13 @@ database = MySQLDatabase(
 
 #table representation
 class Dogs(Model):
-    id =IntegerField(unique=True, null=False)
+    id =IntegerField(primary_key=True, unique=True, null=False)
     name = CharField(max_length=20, null=False)
     picture = CharField(max_length=100)
-    is_adopted = BooleanField(default=True)
+    is_adopted = BooleanField()
     created_date = DateTimeField(default=datetime.datetime.now)
 
+    # for print name without problem
     def __str__(self):
         return self.name
 
